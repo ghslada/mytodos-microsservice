@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+service AssignmentStatusService {
+    rpc GetAssignmentStatus(Empty) returns (AssignmentStatusSet) {}
+}
+
+message AssignmentStatus {
+    int32 id = 1;
+    string title=2;
+    string description=3;
+}
+
+message AssignmentStatusSet {
+    repeated AssignmentStatus assignmentStatusSet=1;
+}
+
+message Empty {}

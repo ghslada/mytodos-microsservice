@@ -1,0 +1,109 @@
+.footer-container {
+    position: absolute;
+    /* position: -webkit-sticky; */
+    /* position: sticky; */
+    /* bottom: 0; */
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 5.5em;
+    padding-bottom: 1em;
+    border-top: grey solid 7.5px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    /* #6f42c1 */
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    transform-style: preserve-3d;
+    /* transition: all 1s ease; */
+    align-items: center;
+}
+
+.footer-up {
+    transform-origin: bottom;
+    transition: all .5s ease;
+    transform: scaleY(1);
+    bottom: 0;
+    position: fixed;
+    animation: upFooter .5s;
+}
+
+.footer-down {
+    transform-origin: bottom;
+    transition: all 2s ease;
+    height: 0;
+    bottom: 0;
+    transform: scaleY(0);
+    position: fixed;
+    animation: downFooter 2s;
+}
+
+.created-by {
+    padding: .5em;
+    margin-bottom: 1.5em;
+    margin-top: 2.5em;
+    margin-right: 2em;
+    max-width: 40%;
+    max-height: 100%;
+}
+
+.created-by-text {
+    color: black;
+    word-wrap: break-word;
+}
+
+.created-by-text a {
+    color: white;
+    word-wrap: break-word;
+}
+
+.contact {
+    /* max-width: 20%; */
+}
+
+.linkedin {
+    margin-right: 1em;
+}
+
+.github {
+}
+
+.bi-linkedin {
+    font-size: 2.5em;
+}
+
+.bi-github {
+    font-size: 2.5em;
+}
+
+@keyframes downFooter {
+    0% {
+        height: 5.5em;
+        transform: scaleY(1);
+        bottom: 0;
+        /* position: sticky; */
+    }
+    100% {
+        bottom: -100%;
+        height: 0;
+        /* position: absolute; */
+        transform: scaleY(0);
+    }
+}
+
+@keyframes upFooter {
+    0% {
+        /* bottom: 0; */
+        height: 0;
+        /* position: absolute; */
+        transform: scaleY(0);
+    }
+    100% {
+        height: 100;
+        transform: scaleY(1);
+        bottom: 0;
+        position: sticky;
+    }
+}
