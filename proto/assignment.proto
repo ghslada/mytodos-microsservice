@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+service AssignmentService {
+    rpc GetAssignments(UserId) returns (AssignmentSet) {}
+    //rpc GetAssignments(UserId,AssignmentStatus) returns (AssignmentSet) {}
+    //rpc GetAssignment(UserId, AssignmentId) returns (Assignment) {}
+    rpc NewAssignmentSet(NewAssignmentSet) returns (NewAssignmentSetResponse) {}
+}
+
+message Assignment {
+
+    int32 id = 1;
+    string title=2;
+    string description=3;
+    int32 owner_id=5;
+    int32 assigned_to_id=6;
+    int32 assignment_status_id=7;
+    int32 assignment_types_id=8;
+    string created_at=9;
+    string updated_at=10;
+
+}
+
+message AssignmentSet {
+    repeated Assignment assignmentSet=1;
+}
+
+message NewAssignment {
+
+    string title=1;
+    string description=2;
+    int32 owner_id=3;
+    int32 assigned_to_id=4;
+    int32 assignment_status_id=5;
+    int32 assignment_types_id=6;
+
+}
+
+message NewAssignmentSet {
+    repeated Assignment newAssignmentSet=1;
+}
+
+message NewAssignmentResponse {
+    int32 fieldCount=1;
+    int32 affectedRows=2;  
+    int32 insertId=3;                   
+    string info=4;
+    int32 serverStatus=5; 
+    int32 warningStatus=6;
+}
+
+message NewAssignmentSetResponse {
+    repeated NewAssignmentResponse newAssignmentSetResponse=1;
+}
+
+message UserId {
+    int32 user_id=1;
+}
+
+message AssignmentId {
+    string assignment_id=1;
+}
+
+message AssignmentType {
+    string assignment_types_id=1;
+}
+
+message AssignmentStatus {
+    string assignment_status_id=1;
+}
+
+message Empty {}

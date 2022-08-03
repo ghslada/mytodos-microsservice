@@ -1,0 +1,48 @@
+{
+    "name": "api-todos",
+    "version": "1.0.0",
+    "description": "Example of two acopled api's",
+    "main": "",
+    "scripts": {
+        "start": "run-p exec change-path-to-client start-frontend",
+        "dev": "run-p start-controller start-users start-assignment-status change-path-to-client start-frontend",
+        "start-controller": "nodemon services/controller/index.js",
+        "start-assignment-status": "nodemon services/assignment_status/index.js",
+        "start-users": "nodemon services/users/index.js",
+        "start-login": "nodemon services/login/index.js",
+        "start-frontendev": "serve -p 5000 services/frontend",
+        "change-path-to-client": "cd client",
+        "start-frontend": "php -S localhost:80",
+        "exec": "run-p start-controller exec-users exec-assignment-status exec-assignment",
+        "exec-controller": "node services/controller/index.js",
+        "exec-assignment-status": "node services/assignment_status/index.js",
+        "exec-assignment": "nodemon services/assignment/index.js",
+        "exec-users": "node services/users/index.js",
+        "exec-login": "node services/login/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aserg-ufmg/micro-livraria.git"
+    },
+    "author": "Rodrigo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/aserg-ufmg/micro-livraria/issues"
+    },
+    "homepage": "https://github.com/aserg-ufmg/micro-livraria#readme",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.5.2",
+        "@grpc/proto-loader": "^0.6.9",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "google-protobuf": "^3.19.3",
+        "multer": "^1.4.5-lts.1",
+        "mysql2": "^2.3.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7",
+        "npm-run-all": "^4.1.5",
+        "serve": "^13.0.2"
+    }
+}

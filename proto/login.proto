@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+service LoginService {
+    rpc Login(UserRequest) returns (User) {}
+    // rpc GetUser(UserRequest) returns (User) {}
+    // rpc CreateUser(User) returns (Empty) {}
+}
+
+// package io.github.efenglu.protobuf.examples.oneof;
+
+// option java_multiple_files = true;
+
+message User {
+    int32 id = 1;
+    string name = 2;
+    string completename = 3;
+    string email=4;
+    string nickname =5;
+    string phone=6;
+    string address=7;
+    string photo_url=8;
+    string created_at=9;
+    bool active = 10;
+    int32 city_id=11;
+}
+
+message UserOrNull {
+    oneof kind {
+        google.protobuf.NullValue null = 1;
+        User user = 2;
+    }
+}
+
+message UserRequest {
+    string email=1;
+    string senha=2;
+}
+
+message NullableString {
+    oneof kind {
+      google.protobuf.NullValue null = 1;
+      string data = 2;
+    }
+  }
+
+message Empty {}

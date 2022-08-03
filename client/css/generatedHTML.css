@@ -1,0 +1,100 @@
+.mt-7 {
+    margin-top: 5rem;
+}
+
+
+.generated {
+    transform-style: preserve-3d;
+    transition: all 1s ease-out;
+    /* display: none; */
+    opacity: 1;
+ 
+    /* transform: translateX(-100%); */
+    animation: generate 1s;
+
+    
+}
+
+
+.generated-center {
+    transform-style: preserve-3d;
+    transition: all 1s ease-out;
+    padding: 5% 10%;
+    opacity: 1;
+    animation: generateCenter 1s;    
+}
+
+.generated-center p {
+    border-radius: .5em;
+    padding: 2.5% 0;
+    transition: all 1s ease-out;
+    animation: generateCenter 1s;   
+}
+
+.destroy {
+    transition: all 1s ease-out;
+    /* position: absolute; */
+    opacity: 0;
+    animation: destroy 1s;
+    height: 0;
+    transform: translateX(-90%);
+    margin: 0;
+    pointer-events: none;
+}
+
+@keyframes generate {
+    0%, 10% {
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-80%);
+    }
+    100% {
+        transform: translateX(0%);
+        pointer-events: none;
+        opacity: 1;
+    }
+}
+
+@keyframes generateCenter {
+    0%, 10% {
+        /* display: none; */
+        opacity: 0;
+        color: red;
+        transform: scaleX(0);
+        /* width: 0%; */
+        
+        /* transform: translateX(-80%); */
+    }
+    70% {
+        color: red;
+    }
+    100% {
+        /* transform: translateX(0%); */
+        /* width: 50%; */
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+@keyframes destroy {
+
+    0%, 10% {
+        
+        opacity: 1;
+        /* color: red; */
+        /* transform: scaleX(1); */
+        /* width: 0%; */
+        height: 100%;
+        
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-90%);
+        /* width: 50%; */
+        height: 100%;
+        opacity: 0;
+        /* opacity: 0; */
+    }
+
+}
